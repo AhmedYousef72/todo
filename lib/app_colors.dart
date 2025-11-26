@@ -5,4 +5,5 @@ class AppColors {
   static Color Sec = Color(0xffDFECDB);
   static Color Grey = Color(0xffC8C9CB);
   static Color done = Color(0xff61E757);
+  static const Color red = Color(0xFFEC4B4B);
 }

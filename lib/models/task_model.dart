@@ -4,12 +4,14 @@ class TaskModel {
   String title;
   String subTitle;
   bool isDone;
+  String userId;
 
   TaskModel({
     this.id = "",
     required this.title,
     required this.subTitle,
     required this.date,
+    required this.userId,
     this.isDone = false,
   });
 
@@ -19,6 +21,7 @@ class TaskModel {
         title: json['title'],
         subTitle: json['subTitle'],
         date: json['date'],
+        userId: json['userId'],
         isDone: json['isDone'],
       );
 
@@ -28,6 +31,7 @@ class TaskModel {
       'title': title,
       'subTitle': subTitle,
       'date': date,
+      'userId': userId,
       'isDone': isDone,
     };
   }

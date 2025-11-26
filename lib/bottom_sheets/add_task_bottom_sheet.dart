@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:todo/app_colors.dart';
 import 'package:todo/firebase_functions.dart';
@@ -79,6 +79,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
           ElevatedButton(
             onPressed: () {
               TaskModel task = TaskModel(
+                userId: FirebaseAuth.instance.currentUser!.uid,
                 title: titleController.text,
                 subTitle: subtitleController.text,
                 date: DateUtils.dateOnly(selectedDate).millisecondsSinceEpoch,

@@ -1,12 +1,16 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo/app_colors.dart';
 import 'package:todo/bottom_sheets/add_task_bottom_sheet.dart';
+import 'package:todo/providers/my_provider.dart';
+import 'package:todo/register/login.dart';
 import 'package:todo/tabs/settings.dart';
 import 'package:todo/tabs/tasks.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
-  static const String routename = "HomeScreen";
+  static const String routeName = "/home";
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -17,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Scaffold(
       extendBody: true,
       backgroundColor: AppColors.Sec,
@@ -24,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
         toolbarHeight: 157,
         backgroundColor: AppColors.primary,
         title: Text(
-          "To Do List",
+          "Hello ${provider.userModel?.Username},",
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.w700,
@@ -32,6 +37,19 @@ class _HomeScreenState extends State<HomeScreen> {
             fontFamily: 'Poppins',
           ),
         ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () {
+              FirebaseAuth.instance.signOut();
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                LoginScreen.routeName,
+                (route) => false,
+              );
+            },
+          ),
+        ],
       ),
 
       body: tabs[selectedIndex],
