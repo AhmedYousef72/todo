@@ -88,6 +88,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                 Navigator.pop(context);
               });
             },
+            style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
             child: Text(
               "Add Task",
               style: TextStyle(
@@ -96,7 +97,6 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                 color: Colors.white,
               ),
             ),
-            style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
           ),
         ],
       ),

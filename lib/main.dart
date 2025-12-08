@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo/tabs/editTask_screen.dart';
 import 'package:todo/firebase_options.dart';
 import 'package:todo/home_screen.dart';
 import 'package:todo/providers/my_provider.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName: (context) => HomeScreen(),
         LoginScreen.routeName: (context) => LoginScreen(),
         SignUpScreen.routeName: (context) => SignUpScreen(),
+        EdittaskScreen.routename: (context) => EdittaskScreen(),
       },
     );
   }
