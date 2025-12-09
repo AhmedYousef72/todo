@@ -5,7 +5,6 @@ A full-featured, production-ready **Todo/Task Management Application** built wit
 ![Flutter](https://img.shields.io/badge/Flutter-3.0%2B-blue?style=flat&logo=flutter)
 ![Dart](https://img.shields.io/badge/Dart-2.18%2B-blue?style=flat&logo=dart)
 ![Firebase](https://img.shields.io/badge/Firebase-Latest-orange?style=flat&logo=firebase)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat)
 
 ---
 
@@ -34,7 +33,7 @@ This app is built based on a professional Figma design:
   - Dark Background: #060E1E
   - Dark Container: #141922
 
-### 🌍 Internationalization
+### 🌍 Languages
 - ✅ **Multi-Language Support** — Arabic & English
 - ✅ **Runtime Language Switch** — Change language instantly in Settings
 - ✅ **RTL Support** — Full right-to-left layout for Arabic
