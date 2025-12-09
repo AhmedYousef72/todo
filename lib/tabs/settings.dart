@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo/app_colors.dart';
+import 'package:todo/utils/app_colors.dart';
 import 'package:todo/bottom_sheets/language_bottomsheet.dart';
 import 'package:todo/bottom_sheets/theme_bottomsheet.dart';
 import 'package:todo/providers/my_provider.dart';

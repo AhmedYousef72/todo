@@ -1,6 +1,6 @@
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
-import 'package:todo/app_colors.dart';
+import 'package:todo/utils/app_colors.dart';
 import 'package:todo/firebase_functions.dart';
 import 'package:todo/task_item.dart';
 
