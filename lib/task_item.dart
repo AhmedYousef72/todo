@@ -6,19 +6,20 @@ import 'package:todo/models/task_model.dart';
 import 'package:todo/tabs/editTask_screen.dart';
 
 class TaskItem extends StatelessWidget {
-  TaskModel taskmodel;
+  final TaskModel taskmodel;
 
   TaskItem({super.key, required this.taskmodel});
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Container(
       height: 115,
       margin: EdgeInsets.symmetric(horizontal: 12),
       padding: EdgeInsets.all(12),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDark ? AppColors.bottomSheetDark : Colors.white,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Slidable(
@@ -90,7 +91,7 @@ class TaskItem extends StatelessWidget {
                     Text(
                       taskmodel.subTitle,
                       style: TextStyle(
-                        color: AppColors.Grey,
+                        color: AppColors.grey,
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                       ),

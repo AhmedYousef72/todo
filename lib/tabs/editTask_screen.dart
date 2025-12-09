@@ -17,25 +17,37 @@ class _EdittaskScreenState extends State<EdittaskScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      backgroundColor: AppColors.Sec,
+      backgroundColor: isDark ? AppColors.scaffoldDark : Color(0xFFDFECDB),
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back),
+        ),
         toolbarHeight: 157,
-        backgroundColor: AppColors.primary,
-        title: Text(
-          "Edit Screen",
-          style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.w700,
-            color: Colors.white,
-            fontFamily: 'Poppins',
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        elevation: 0,
+        centerTitle: false,
+        titleSpacing: 0,
+        title: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Text(
+            "Edit Screen",
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.w700,
+              fontFamily: 'Poppins',
+            ),
           ),
         ),
       ),
       body: Center(
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: isDark ? AppColors.navBarDark : AppColors.cardLight,
             borderRadius: BorderRadius.circular(21),
           ),
           height: 617,
@@ -51,6 +63,7 @@ class _EdittaskScreenState extends State<EdittaskScreen> {
                 SizedBox(height: 24),
                 TextFormField(
                   initialValue: model.title,
+                  style: TextStyle(color: Colors.black),
                   onChanged: (value) {
                     model.title = value;
                   },
@@ -73,6 +86,7 @@ class _EdittaskScreenState extends State<EdittaskScreen> {
                 SizedBox(height: 18),
                 TextFormField(
                   initialValue: model.subTitle,
+                  style: TextStyle(color: Colors.black),
                   onChanged: (value) {
                     model.subTitle = value;
                   },

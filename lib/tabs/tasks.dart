@@ -16,13 +16,25 @@ class _TaskTabState extends State<TaskTab> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    // Build a color scheme that keeps the primary (selected) color the same
+    // but changes the surface/onSurface colors in dark mode so unselected
+    // date cards are dark (#141922) with white text.
+    final colorScheme = ColorScheme.fromSeed(seedColor: AppColors.primary)
+        .copyWith(
+          surface: isDark ? AppColors.bottomSheetDark : null,
+          onSurface: isDark ? Colors.white : null,
+        );
+
     return Column(
       children: [
         Theme(
           data: Theme.of(context).copyWith(
-            colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
+            colorScheme: colorScheme,
+            cardColor: isDark
+                ? AppColors.bottomSheetDark
+                : Theme.of(context).cardColor,
           ),
-
           child: EasyDateTimeLinePicker(
             firstDate: DateTime(2000, 1, 1),
             lastDate: DateTime(2035, 3, 18),
@@ -30,7 +42,6 @@ class _TaskTabState extends State<TaskTab> {
             selectionMode: SelectionMode.autoCenter(),
             locale: Locale("ar"),
             disableStrategy: DisableStrategy.beforeToday(),
-
             onDateChange: (datetime) {
               setState(() {
                 date = datetime;

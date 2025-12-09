@@ -31,8 +31,10 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<MyProvider>(context);
+    final isDark = provider.mode == ThemeMode.dark;
+
     return Scaffold(
-      backgroundColor: AppColors.Sec,
+      backgroundColor: isDark ? AppColors.scaffoldDark : Color(0xFFDFECDB),
       appBar: AppBar(
         backgroundColor: AppColors.primary,
         elevation: 0,
@@ -75,13 +77,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 Text(
                   'Login to continue managing your tasks',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 14, color: AppColors.Grey),
+                  style: TextStyle(fontSize: 14, color: AppColors.grey),
                 ),
                 SizedBox(height: 40),
                 // Email Field
                 TextFormField(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
+                  style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     labelText: 'Email',
                     hintText: 'Enter your email',
@@ -117,6 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 TextFormField(
                   controller: _passwordController,
                   obscureText: !_isPasswordVisible,
+                  style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     labelText: 'Password',
                     hintText: 'Enter your password',
@@ -245,7 +249,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         TextSpan(
                           text: "Don't have an account? ",
-                          style: TextStyle(color: AppColors.Grey, fontSize: 14),
+                          style: TextStyle(color: AppColors.grey, fontSize: 14),
                         ),
                         TextSpan(
                           text: 'Sign Up',

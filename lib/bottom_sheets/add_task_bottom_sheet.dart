@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:todo/app_colors.dart';
 import 'package:todo/firebase_functions.dart';
 import 'package:todo/models/task_model.dart';
@@ -24,14 +25,15 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            "Add New Task",
+            "add_new_task".tr(),
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 24),
           TextFormField(
             controller: titleController,
+            style: TextStyle(color: Colors.black),
             decoration: InputDecoration(
-              label: Text("Title"),
+              label: Text("task_title".tr()),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(18),
               ),
@@ -43,8 +45,9 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
           SizedBox(height: 18),
           TextFormField(
             controller: subtitleController,
+            style: TextStyle(color: Colors.black),
             decoration: InputDecoration(
-              label: Text("Discription"),
+              label: Text("task_description".tr()),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(18),
               ),
@@ -55,7 +58,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
           ),
           SizedBox(height: 18),
           Text(
-            "Select Time",
+            "select_date".tr(),
             textAlign: TextAlign.start,
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
           ),
@@ -88,9 +91,11 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                 Navigator.pop(context);
               });
             },
-            style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.selectedIcon,
+            ),
             child: Text(
-              "Add Task",
+              "add_task".tr(),
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w400,

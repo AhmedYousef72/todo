@@ -22,19 +22,27 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<MyProvider>(context);
+    final isDark = provider.mode == ThemeMode.dark;
     return Scaffold(
       extendBody: true,
-      backgroundColor: AppColors.Sec,
+      backgroundColor: isDark ? AppColors.scaffoldDark : Color(0xFFDFECDB),
       appBar: AppBar(
         toolbarHeight: 157,
-        backgroundColor: AppColors.primary,
-        title: Text(
-          "Hello ${provider.userModel?.Username},",
-          style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.w700,
-            color: Colors.white,
-            fontFamily: 'Poppins',
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        elevation: 0,
+        centerTitle: false,
+        titleSpacing: 0,
+        title: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Text(
+            selectedIndex == 1
+                ? 'Settings'
+                : "Hello ${provider.userModel?.Username},",
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.w700,
+              fontFamily: 'Poppins',
+            ),
           ),
         ),
         actions: [
@@ -75,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Icon(Icons.add, color: Colors.white),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.white,
+        color: isDark ? AppColors.navBarDark : AppColors.navBarLight,
         padding: EdgeInsets.zero,
         notchMargin: 8,
         shape: CircularNotchedRectangle(),
@@ -87,8 +95,8 @@ class _HomeScreenState extends State<HomeScreen> {
             selectedIndex = value;
             setState(() {});
           },
-          selectedItemColor: AppColors.primary,
-          unselectedItemColor: AppColors.Grey,
+          selectedItemColor: AppColors.selectedIcon,
+          unselectedItemColor: AppColors.unselectedIcon,
           showUnselectedLabels: false,
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),

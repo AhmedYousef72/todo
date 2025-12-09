@@ -36,8 +36,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      backgroundColor: AppColors.Sec,
+      backgroundColor: isDark ? AppColors.scaffoldDark : Color(0xFFDFECDB),
       appBar: AppBar(
         backgroundColor: AppColors.primary,
         elevation: 0,
@@ -84,7 +85,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Text(
                   'Sign up to start managing your tasks',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 14, color: AppColors.Grey),
+                  style: TextStyle(fontSize: 14, color: AppColors.grey),
                 ),
                 SizedBox(height: 32),
                 // Name Field
@@ -92,6 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   controller: _nameController,
                   keyboardType: TextInputType.name,
                   textCapitalization: TextCapitalization.words,
+                  style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     labelText: 'Full Name',
                     hintText: 'Enter your full name',
@@ -124,6 +126,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 TextFormField(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
+                  style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     labelText: 'Email',
                     hintText: 'Enter your email',
@@ -160,6 +163,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 TextFormField(
                   controller: _phoneController,
                   keyboardType: TextInputType.phone,
+                  style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     labelText: 'Phone Number',
                     hintText: 'Enter your phone number',
@@ -193,6 +197,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 TextFormField(
                   controller: _ageController,
                   keyboardType: TextInputType.number,
+                  style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     labelText: 'Age',
                     hintText: 'Enter your age',
@@ -228,6 +233,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 TextFormField(
                   controller: _passwordController,
                   obscureText: !_isPasswordVisible,
+                  style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     labelText: 'Password',
                     hintText: 'Enter your password',
@@ -282,6 +288,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 TextFormField(
                   controller: _confirmPasswordController,
                   obscureText: !_isConfirmPasswordVisible,
+                  style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     labelText: 'Confirm Password',
                     hintText: 'Confirm your password',
@@ -395,7 +402,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   children: [
                     Text(
                       "Already have an account? ",
-                      style: TextStyle(color: AppColors.Grey, fontSize: 14),
+                      style: TextStyle(color: AppColors.grey, fontSize: 14),
                     ),
                     TextButton(
                       onPressed: () {
